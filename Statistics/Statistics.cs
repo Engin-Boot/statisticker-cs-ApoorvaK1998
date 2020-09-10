@@ -4,31 +4,29 @@ using System.Linq;
 using Statistics;
 
 
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Statistics
 {
-    
     public class StatsComputer
     {
-        public Stats CalculateStatistics(List<float> numbers)
+        public Stats CalculateStatistics(List<double> numbers)
         {
-
-            Stats stat=new Stats();
-            if(numbers.Count>0)
+            Stats obj = new Stats();
+            if (numbers.Count > 0)
             {
-                stat.average = numbers.Average();
-                stat.min = numbers.Min();
-                stat.max = numbers.Max();
-
+                obj.max = numbers.Max<double>();
+                obj.min = numbers.Min<double>();
+                obj.average = numbers.Average();
             }
             else
             {
-                stat.average=double.NaN;
-                stat.min = double.NaN;
-                stat.max = double.NaN;
-
+                obj.max = double.NaN;
+                obj.min = double.NaN;
+                obj.average = double.NaN;
             }
-            return stat;
-
+            return obj;
         }
     }
 }
